@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rohit Gurav | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#087cff;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#087cff;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 8% 60px;
+    background:
+    radial-gradient(circle at 85% 30%,rgba(8,124,255,.2),transparent 30%),
+    linear-gradient(135deg,#fff,#f1f7ff);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-content{
+    max-width:750px;
+    animation:slideUp 1s ease;
+}
+
+.small-title{
+    color:#087cff;
+    font-size:18px;
+    font-weight:600;
+}
+
+.hero h1{
+    font-size:clamp(50px,8vw,90px);
+    line-height:1;
+    margin:12px 0;
+    font-weight:800;
+}
+
+.hero h1 span{
+    color:#087cff;
+}
+
+.hero h2{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#666;
+    line-height:1.8;
+    font-size:17px;
+    max-width:650px;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary{
+    background:#087cff;
+    color:white;
+}
+
+.primary:hover{
+    background:#005dc7;
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(8,124,255,.3);
+}
+
+.secondary{
+    border:2px solid #111;
+    color:#111;
+}
+
+.secondary:hover{
+    background:#111;
+    color:white;
+    transform:translateY(-4px);
+}
+
+/* ANIMATED CIRCLES */
+.circle{
+    position:absolute;
+    border:2px solid rgba(8,124,255,.2);
+    border-radius:50%;
+    animation:float 5s infinite ease-in-out;
+}
+
+.circle1{
+    width:350px;
+    height:350px;
+    right:8%;
+    top:20%;
+}
+
+.circle2{
+    width:220px;
+    height:220px;
+    right:16%;
+    top:32%;
+    animation-delay:1s;
+}
+
+.circle3{
+    width:80px;
+    height:80px;
+    right:30%;
+    top:15%;
+    background:#087cff20;
+}
+
+/* GENERAL */
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:40px;
+}
+
+.section-title span{
+    color:#087cff;
+}
+
+.section-title p{
+    color:#777;
+}
+
+/* ABOUT */
+.about{
+    background:#080808;
+    color:white;
+}
+
+.about-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.about-card{
+    padding:35px;
+    background:#111;
+    border:1px solid #333;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.about-card:hover{
+    transform:translateY(-8px);
+    border-color:#087cff;
+}
+
+.about-card h3{
+    color:#087cff;
+    margin-bottom:15px;
+    font-size:25px;
+}
+
+.about-card p{
+    color:#ccc;
+    line-height:1.8;
+}
+
+.info{
+    display:grid;
+    gap:15px;
+}
+
+.info-box{
+    background:#111;
+    padding:18px;
+    border-left:4px solid #087cff;
+    border-radius:6px;
+}
+
+.info-box strong{
+    color:#087cff;
+    display:block;
+}
+
+/* EDUCATION */
+.education{
+    background:#f5f9ff;
+}
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    width:3px;
+    background:#087cff;
+    top:0;
+    bottom:0;
+    left:50%;
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:50%;
+}
+
+.dot{
+    position:absolute;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#087cff;
+    border:4px solid white;
+    top:35px;
+}
+
+.timeline-item:nth-child(odd) .dot{
+    right:-9px;
+}
+
+.timeline-item:nth-child(even) .dot{
+    left:-9px;
+}
+
+.timeline-card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.timeline-card:hover{
+    transform:translateY(-7px);
+}
+
+.timeline-card h3{
+    color:#087cff;
+}
+
+.timeline-card p{
+    color:#666;
+    margin-top:8px;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:5px 12px;
+    background:#e5f2ff;
+    color:#087cff;
+    border-radius:20px;
+    font-weight:600;
+}
+
+/* SKILLS */
+.skills-container{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+}
+
+.skill{
+    padding:30px 15px;
+    text-align:center;
+    border:1px solid #e5e5e5;
+    border-radius:15px;
+    transition:.4s;
+    background:white;
+}
+
+.skill:hover{
+    transform:translateY(-10px);
+    border-color:#087cff;
+    box-shadow:0 15px 30px rgba(8,124,255,.15);
+}
+
+.skill-icon{
+    width:60px;
+    height:60px;
+    margin:auto auto 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#080808;
+    color:white;
+    border-radius:50%;
+    font-weight:bold;
+}
+
+.skill:hover .skill-icon{
+    background:#087cff;
+}
+
+/* CERTIFICATE */
+.certificate{
+    background:#080808;
+    color:white;
+    text-align:center;
+}
+
+.certificate-card{
+    max-width:700px;
+    margin:auto;
+    padding:50px;
+    border:1px solid #333;
+    border-radius:20px;
+    background:#111;
+    transition:.4s;
+}
+
+.certificate-card:hover{
+    transform:translateY(-8px);
+    border-color:#087cff;
+}
+
+.certificate-icon{
+    font-size:55px;
+}
+
+.certificate-card h3{
+    color:#087cff;
+    font-size:28px;
+    margin:15px 0;
+}
+
+.certificate-card p{
+    color:#bbb;
+    line-height:1.8;
+}
+
+/* HOBBIES */
+.hobbies{
+    background:#f5f9ff;
+}
+
+.hobby-container{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.hobby{
+    background:white;
+    padding:40px 20px;
+    text-align:center;
+    border-radius:15px;
+    border-bottom:4px solid #087cff;
+    transition:.4s;
+}
+
+.hobby:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+}
+
+.hobby-icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+.contact-card{
+    max-width:700px;
+    margin:auto;
+    background:#080808;
+    color:white;
+    padding:50px 30px;
+    border-radius:20px;
+}
+
+.contact-card h2{
+    font-size:35px;
+}
+
+.contact-card span{
+    color:#087cff;
+}
+
+.contact-card p{
+    color:#aaa;
+    line-height:1.8;
+    margin:15px 0 25px;
+}
+
+/* FOOTER */
+footer{
+    background:#050505;
+    color:#aaa;
+    text-align:center;
+    padding:25px;
+}
+
+footer span{
+    color:#087cff;
+}
+
+/* ANIMATIONS */
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-25px);
+    }
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+    nav{
+        padding:15px 5%;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav ul{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav a{
+        font-size:13px;
+    }
+
+    .hero{
+        padding-top:160px;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero h2{
+        font-size:23px;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .skills-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        margin-left:0;
+        text-align:left;
+        padding-left:40px;
+    }
+
+    .timeline-item:nth-child(odd){
+        text-align:left;
+    }
+
+    .timeline-item .dot,
+    .timeline-item:nth-child(odd) .dot,
+    .timeline-item:nth-child(even) .dot{
+        left:1px;
+        right:auto;
+    }
+
+    .hobby-container{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    section{
+        padding:75px 6%;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+    .skills-container{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .circle1{
+        width:200px;
+        height:200px;
+        right:-70px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">Rohit<span>.</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">Hello, I'm</div>
+
+        <h1>Rohit <span>Gurav</span></h1>
+
+        <h2>BCA Student & Future Developer</h2>
+
+        <p>
+            I am a BCA 2nd year student currently pursuing
+            my 3rd semester at SKE BCA College, Chandgad.
+            I am passionate about programming, web development
+            and learning new technologies.
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn primary">
+                Explore My Portfolio
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Contact Me
+            </a>
+        </div>
+
+    </div>
+
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>About <span>Me</span></h2>
+        <p style="color:#aaa;">Get to know me</p>
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-card">
+
+            <h3>Who Am I?</h3>
+
+            <p>
+                My name is Rohit Gurav. I am a BCA student
+                interested in technology, programming and
+                web development.
+            </p>
+
+            <br>
+
+            <p>
+                I enjoy learning new technologies and improving
+                my programming skills. My goal is to become a
+                skilled software developer and create useful
+                and innovative applications.
+            </p>
+
+        </div>
+
+        <div class="info">
+
+            <div class="info-box">
+                <strong>Current Education</strong>
+                BCA – 3rd Semester
+            </div>
+
+            <div class="info-box">
+                <strong>College</strong>
+                SKE BCA College, Chandgad
+            </div>
+
+            <div class="info-box">
+                <strong>10th Standard</strong>
+                Sai Vidyalaya, Ibrahimpur – 91%
+            </div>
+
+            <div class="info-box">
+                <strong>12th Standard</strong>
+                N.B. Patil Jr. College, Chandgad – 63%
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+
+    <div class="section-title">
+
+        <h2>My <span>Education</span></h2>
+
+        <p>My academic journey</p>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="dot"></div>
+
+            <div class="timeline-card">
+
+                <h3>10th Standard</h3>
+
+                <p>Sai Vidyalaya, Ibrahimpur</p>
+
+                <span class="badge">91%</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="dot"></div>
+
+            <div class="timeline-card">
+
+                <h3>12th Standard</h3>
+
+                <p>N.B. Patil Jr. College, Chandgad</p>
+
+                <span class="badge">63%</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="dot"></div>
+
+            <div class="timeline-card">
+
+                <h3>BCA – 3rd Semester</h3>
+
+                <p>SKE BCA College, Chandgad</p>
+
+                <span class="badge">Currently Pursuing</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <div class="section-title">
+
+        <h2>Technical <span>Skills</span></h2>
+
+        <p>Technologies I am learning</p>
+
+    </div>
+
+    <div class="skills-container">
+
+        <div class="skill">
+            <div class="skill-icon">H5</div>
+            <h3>HTML</h3>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">C</div>
+            <h3>CSS</h3>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">J</div>
+            <h3>Java</h3>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">C</div>
+            <h3>C Programming</h3>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">PY</div>
+            <h3>Python</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CERTIFICATION -->
+<section class="certificate">
+
+    <div class="section-title">
+
+        <h2>My <span>Certification</span></h2>
+
+        <p style="color:#aaa;">
+            Continuous learning
+        </p>
+
+    </div>
+
+    <div class="certificate-card">
+
+        <div class="certificate-icon">🤖</div>
+
+        <h3>Artificial Intelligence</h3>
+
+        <p>
+            I have completed a certified course in
+            Artificial Intelligence and gained knowledge
+            about modern AI technologies and their
+            applications.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- HOBBIES -->
+<section class="hobbies" id="hobbies">
+
+    <div class="section-title">
+
+        <h2>My <span>Hobbies</span></h2>
+
+        <p>Things I enjoy outside academics</p>
+
+    </div>
+
+    <div class="hobby-container">
+
+        <div class="hobby">
+            <div class="hobby-icon">🏃</div>
+            <h3>Kho-Kho</h3>
+        </div>
+
+        <div class="hobby">
+            <div class="hobby-icon">🏏</div>
+            <h3>Cricket</h3>
+        </div>
+
+        <div class="hobby">
+            <div class="hobby-icon">🤼</div>
+            <h3>Kabaddi</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="section-title">
+
+        <h2>Let's <span>Connect</span></h2>
+
+        <p>Thank you for visiting my portfolio</p>
+
+    </div>
+
+    <div class="contact-card">
+
+        <h2>Thank You for <span>Visiting!</span></h2>
+
+        <p>
+            I am always interested in learning,
+            creating and connecting with people
+            interested in technology.
+        </p>
+
+        <!-- CHANGE THIS EMAIL -->
+        <a
+            href="mailto:your-email@gmail.com"
+            class="btn primary">
+            Email Me
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 <span>Rohit Gurav</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* Scroll reveal animation */
+
+const elements = document.querySelectorAll(
+    '.about-card, .info-box, .timeline-card, .skill, .hobby, .certificate-card'
+);
+
+const observer = new IntersectionObserver(
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.15
+    }
+);
+
+elements.forEach(function(element){
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(35px)";
+    element.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+    observer.observe(element);
+
+});
+
+</script>
+
+</body>
+</html>
